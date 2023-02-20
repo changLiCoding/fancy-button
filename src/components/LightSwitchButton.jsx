@@ -1,17 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 
-function LightSwitchButton() {
-	const [isOn, setIsOn] = useState(true);
-	const clickHandler = () => {
-		setIsOn(!isOn);
-	};
+function LightSwitchButton(props) {
+	const { darkModeHandler, somethingAboutLight } = props;
+	const clickHandler = () => darkModeHandler();
 	return (
 		<button
 			className='LightSwitchButton'
-			onClick={() => {
-				clickHandler();
-			}}>
-			{isOn ? (
+			onClick={clickHandler}>
+			{!somethingAboutLight ? (
 				<span className='on'>
 					<i>💡</i> I'm on!
 				</span>
